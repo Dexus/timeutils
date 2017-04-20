@@ -114,7 +114,7 @@ func (t *Time) UnmarshalJSON(buf []byte) error {
 	// Try to parse the timestamp integer
 	ts, err := strconv.ParseInt(string(buf), 10, 64)
 	if err == nil {
-		if len(buf) == 19 {
+		if len(ts) == 19 {
 			t.Time = time.Unix(ts/1e9, ts%1e9)
 		} else {
 			t.Time = time.Unix(ts, 0)
